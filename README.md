@@ -165,6 +165,7 @@ We are looking for endorsements! Are you also using b3bp? [Let us know](https://
 - [Giovanni Saponaro](https://github.com/gsaponaro) (feedback)
 - [Germain Masse](https://github.com/gmasse)
 - [A. G. Madi](https://github.com/warpengineer)
+- [Virgil](https://github.com/virgilwashere)
 
 ## License
 

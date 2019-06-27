@@ -21,6 +21,8 @@ Released: TBA.
 - [x] Fix typo in FAQ (#92, @gmasse)
 - [x] Fix Travis CI failure on src/templater.sh (@gmasse)
 - [x] Add magic variable which contains full command invocation
+- [x] Add line numbers and colour mode to debug mode (#103, #105, @virgilwashere)
+- [x] Fix Travis CI failure with `shellcheck` on src/main.sh (#103, #107 @virgilwashere)
 
 ## v2.3.0
 
