@@ -105,8 +105,8 @@ function __b3bp_log () {
   unset -v __b3bp_tmp_xtrace
 }
 
-
-function emergency () {                                __b3bp_log emergency "${@}"; exit 1; }
+# function emergency () {                                __b3bp_log emergency "${@}"; exit 1; }
+function emergency () { __b3bp_log emergency "${@}"; ((${__i_am_main_script-})) || exit 1; }
 function alert ()     { [[ "${LOG_LEVEL:-0}" -ge 1 ]] && __b3bp_log alert "${@}"; true; }
 function critical ()  { [[ "${LOG_LEVEL:-0}" -ge 2 ]] && __b3bp_log critical "${@}"; true; }
 function error ()     { [[ "${LOG_LEVEL:-0}" -ge 3 ]] && __b3bp_log error "${@}"; true; }
@@ -326,7 +326,7 @@ fi
 ##############################################################################
 
 function __b3bp_cleanup_before_exit () {
-  if ! ((__i_am_main_script)); then
+  if ! ((${__i_am_main_script-})); then
     [[ -n "${__b3bp_tmp_tz}" ]] && TZ="${__b3bp_tmp_tz-}"
   fi
   info "Cleaning up. Done"
@@ -382,7 +382,7 @@ if [[ "${arg_d:?}" = "1" ]]; then
   if [[ ! "${TZ-}" = "UTC" ]]; then
     declare TZ
     # save TZ if we are sourced
-    if ! ((__i_am_main_script)); then
+    if ! ((${__i_am_main_script-})); then
       declare __b3bp_tmp_tz
       __b3bp_tmp_tz="${TZ-}"
     fi
