@@ -327,7 +327,7 @@ fi
 
 function __b3bp_cleanup_before_exit () {
   if ! ((__i_am_main_script)); then
-    [[ -v __b3bp_tmp_tz ]] && TZ="${__b3bp_tmp_tz-}"
+    [[ -n "${__b3bp_tmp_tz}" ]] && TZ="${__b3bp_tmp_tz-}"
   fi
   info "Cleaning up. Done"
 }
